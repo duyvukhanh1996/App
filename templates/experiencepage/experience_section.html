@@ -1,0 +1,94 @@
+<section id="experience" class="projects-section bg-light">
+    <div class="d-flex justify-content-center align-items-center mb-50px">
+        <h1 class="xlarge-font"><b>Experience</b></h1>
+    </div>
+
+    <div class="w-60 mx-auto border">
+
+        {% for i in range(5,x,-1) %}
+        {% if i % 2 == 0 %}
+        <!-- The right Section -->
+        <div class="container-experience-page">
+            <div class="row-experience-page">
+                <div class="column-66-experience-page">
+                    <a href="post/{{ data[page_number*5-i].name }}">
+                        <h1>{{ data[page_number*5-i].name }}</h1>
+                    </a>
+                    <p>{{ data[page_number*5-i].content.p1 }}</p>
+                    <a href="post/{{ data[page_number*5-i].name }}">
+                        <button class="btn btn-primary">Explore</button>
+                    </a>
+
+                </div>
+                <div class="column-33-experience-page">
+                    <img src="{{ data[page_number*5-i].picture_link }}" width="100%" height="100%">
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <!-- The left Section -->
+        <div class="container-experience-page" style="background-color:#f1f1f1">
+            <div class="row">
+                <div class="column-33-experience-page">
+                    <img src="{{ data[page_number*5-i].picture_link }}" width="100%" height="100%">
+                </div>
+                <div class="column-66-experience-page">
+                    <a href="post/{{ data[page_number*5-i].name }}">
+                        <h1>{{ data[page_number*5-i].name }}</h1>
+                    </a>
+                    <p>{{ data[page_number*5-i].content.p1 }}</p>
+                    <a href="post/{{ data[page_number*5-i].name }}">
+                        <button class="btn btn-primary">Explore</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center align-items-center mb-50px">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if page_number == 1 %}
+                {% for i in range(max_page_number) %}
+                <li class="page-item"><a class="page-link" href="{{i+1}}">{{i+1}}</a></li>
+                {% endfor %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('experience',a = page_number + 1) }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+
+                {% elif page_number == max_page_number %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('experience',a = page_number - 1) }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% for i in range(max_page_number) %}
+                <li class="page-item"><a class="page-link" href="{{i+1}}">{{i+1}}</a></li>
+                {% endfor %}
+                {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('experience',a = page_number - 1) }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% for i in range(max_page_number) %}
+                <li class="page-item"><a class="page-link" href="{{i+1}}">{{i+1}}</a></li>
+                {% endfor %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('experience',a = page_number + 1) }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</section>

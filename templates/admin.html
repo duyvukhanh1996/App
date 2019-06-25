@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admin</title>
+    {% include "metadata_top.html" %}
+</head>
+
+<body>
+    {% include "headerandfooter/navigation.html" %}
+    {% include "headerandfooter/header.html" %}
+
+    <div class="admin-page-body d-flex justify-content-center align-items-center">
+        <div class="admin-page-body1 d-flex justify-content-center align-items-center">
+            <form class="form-inline" method="POST">
+                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Number of paragraphs.</label>
+                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="number_of_p">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+
+                <button type="submit" class="btn btn-primary my-1">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    {% include "headerandfooter/contact_section.html" %}
+    {% include "headerandfooter/footer.html" %}
+    {% include "metadata_bot.html" %}
+
+</body>
+
+</html>

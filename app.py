@@ -154,7 +154,7 @@ def user_gallery(username):
     x = len(get_image_by_owner(username)) // 4
     if "username" in session:
         return render_template('gallery_page_owner.html', logged_in=True, gallery=get_image_by_owner(username), x=x, y=len(get_image_by_owner(username)), user=session['username'],owner = username)
-    return render_template('gallery_page_owner.html', logged_in=False, gallery=get_image_by_owner(username), x=x, y=len(get_image_by_owner(username)))
+    return render_template('gallery_page_owner.html', logged_in=False, gallery=get_image_by_owner(username), x=x, y=len(get_image_by_owner(username)), user = None)
 
 
 @app.route('/deleted/<image_id>')
